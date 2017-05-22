@@ -42,10 +42,10 @@ public class MainActivity extends AppCompatActivity implements OnLoadCompleteLis
     }
 
     public void onClickBtn(View view) {
-        streamIdShot = sp.play(soundIdShot, 1, 1, 0, 9, 1);
+        streamIdShot = sp.play(soundIdShot, 1, 0, 0, 9, 1);
         msg = "streamIdShot = " + streamIdShot;
         Messager.sendToAllRecipients(getBaseContext(), msg);
-        streamIdExplosion = sp.play(soundIdExplosion, 1, 1, 0, 5, 1);
+        streamIdExplosion = sp.play(soundIdExplosion, 0, 1, 0, 4, 1);
         msg = "streamIdExplosion = " + streamIdExplosion;
         Messager.sendToAllRecipients(getBaseContext(), msg);
 
@@ -54,13 +54,17 @@ public class MainActivity extends AppCompatActivity implements OnLoadCompleteLis
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        sp.autoPause();
-        try {
-            TimeUnit.SECONDS.sleep(3);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        sp.autoResume();
+        //Step 5
+//        sp.autoPause();
+//        try {
+//            TimeUnit.SECONDS.sleep(3);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//        sp.autoResume();
+        //Step 6
+        sp.setVolume(streamIdShot, 0, 1);
+        sp.setVolume(streamIdExplosion, 1, 0);
     }
 
     @Override
