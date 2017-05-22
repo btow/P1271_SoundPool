@@ -8,12 +8,13 @@ import android.os.Bundle;
 import android.view.View;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 import static android.media.SoundPool.*;
 
 public class MainActivity extends AppCompatActivity implements OnLoadCompleteListener {
 
-    private final int MAX_STREAMS = 5;
+    private final int MAX_STREAMS = 1;
     private String msg;
 
     private SoundPool sp;
@@ -41,8 +42,17 @@ public class MainActivity extends AppCompatActivity implements OnLoadCompleteLis
     }
 
     public void onClickBtn(View view) {
-        sp.play(soundIdShot, 0.1f, 1, 0, 5, 0.5f);
-        sp.play(soundIdExplosion, 1, 0.1f, 0, 2, 2);
+        streamIdShot = sp.play(soundIdShot, 1, 1, 1, 10, 1);
+        msg = "streamIdShot = " + streamIdShot;
+        Messager.sendToAllRecipients(getBaseContext(), msg);
+        try {
+            TimeUnit.SECONDS.sleep(2);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        streamIdExplosion = sp.play(soundIdExplosion, 1, 1, 0, 0, 1);
+        msg = "streamIdExplosion = " + streamIdExplosion;
+        Messager.sendToAllRecipients(getBaseContext(), msg);
     }
 
     @Override
