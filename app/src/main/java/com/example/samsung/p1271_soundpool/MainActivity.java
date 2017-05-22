@@ -41,8 +41,8 @@ public class MainActivity extends AppCompatActivity implements OnLoadCompleteLis
     }
 
     public void onClickBtn(View view) {
-        sp.play(soundIdShot, 0.1f, 1, 0, 5, 1);
-        sp.play(soundIdExplosion, 1, 0.1f, 0, 2, 1);
+        sp.play(soundIdShot, 0.1f, 1, 0, 5, 0.5f);
+        sp.play(soundIdExplosion, 1, 0.1f, 0, 2, 2);
     }
 
     @Override
