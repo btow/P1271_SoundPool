@@ -65,6 +65,9 @@ public class MainActivity extends AppCompatActivity implements OnLoadCompleteLis
         //Step 6
         sp.setVolume(streamIdShot, 0, 1);
         sp.setVolume(streamIdExplosion, 1, 0);
+        //Step 7
+//        sp.unload(streamIdShot);
+//        sp.release();
     }
 
     @Override
