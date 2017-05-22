@@ -54,13 +54,13 @@ public class MainActivity extends AppCompatActivity implements OnLoadCompleteLis
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        sp.pause(streamIdShot);
+        sp.autoPause();
         try {
             TimeUnit.SECONDS.sleep(3);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        sp.resume(streamIdShot);
+        sp.autoResume();
     }
 
     @Override
